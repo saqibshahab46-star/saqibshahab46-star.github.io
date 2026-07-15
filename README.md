@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Saqib Shahab — Interactive 3D Developer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live Portfolio]:(https://saqibshahab46-star.github.io/)
 
-## Available Scripts
+Welcome to the source code of my personal portfolio. I am a final semester Software Engineering student at UET Taxila, specializing in training neural networks, designing automation pipelines, and building full-stack products that solve real problems.
 
-In the project directory, you can run:
+This repository houses the React.js and Three.js codebase for my interactive web experience.
 
-### `npm start`
+## ✨ Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This portfolio moves beyond static web pages, incorporating complex WebGL mechanics and glassmorphic UI elements to create an immersive experience:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **3D Tech Stack Sphere:** A fully interactive, drag-to-rotate physics sphere built with Three.js, mapping out my core frontend, backend, and AI technologies.
+*   **Holographic CV Scanner:** A custom 3D digital paper component using additive blending and bloom effects to simulate a neon laser scanning a holographic resume.
+*   **Interactive 3D Data Core:** A dual-ring, counter-rotating data core with dynamic 3D typography that tracks mouse momentum for friction-based spinning.
+*   **Swipeable Project Galleries:** Custom-built modal galleries with backdrop blurring and device-specific swipe mechanics (X-axis for desktop, Y-axis for mobile).
+*   **Fully Responsive:** Fluid grid layouts and CSS transforms ensure the 3D canvases scale flawlessly from 4K monitors down to mobile viewports.
 
-### `npm test`
+## 🚀 Featured Work
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+*   **DonutDoc (Final Year Project):** An AI-based structured document generation system. Fine-tuned the DONUT vision-language model (achieving a 0.19 training loss) using a Swin Encoder and BART Decoder via PyTorch and FastAPI to extract intelligence from unstructured forms.
+*   **VizuAR AI:** An AI-powered Augmented Reality interior design ecosystem built for E-Commerce.
+*   **Intelligent Automation:** Lead generation and estimate funnel architectures utilizing n8n, GoHighLevel (GHL), and LLM text generation.
 
-### `npm run build`
+## 🛠️ Tech Stack & Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*   **Core:** React.js, Three.js (WebGL), JavaScript, HTML5, CSS3.
+*   **AI & Backend:** Python, PyTorch, FastAPI, Flask, OpenCV.
+*   **Database & BaaS:** PostgreSQL, MongoDB, Firebase (Firestore, Auth, Storage), Supabase.
+*   **Automation & DevOps:** Docker, n8n, GoHighLevel, GitHub Pages.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Running Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you'd like to clone this repository and run it locally on your machine:
 
-### `npm run eject`
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/saqibshahab46-star/saqibshahab46-star.github.io.git](https://github.com/saqibshahab46-star/saqibshahab46-star.github.io.git)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Navigate to the directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Bash
+cd saqibshahab46-star.github.io
+Install dependencies:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Bash
+npm install
+Start the development server:
 
-## Learn More
+Bash
+npm start
+Open http://localhost:3000 to view it in your browser.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📫 Get in Touch
+LinkedIn: linkedin.com/in/saqib-shahab-581373245
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GitHub: @saqibshahab46-star
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Built with curiosity, React, and Three.js.
