@@ -1,6 +1,6 @@
 # Saqib Shahab — Interactive 3D Developer Portfolio
 
-[Live Portfolio]:(https://saqibshahab46-star.github.io/)
+Live Portfolio:  (https://saqibshahab46-star.github.io/)
 
 Welcome to the source code of my personal portfolio. I am a final semester Software Engineering student at UET Taxila, specializing in training neural networks, designing automation pipelines, and building full-stack products that solve real problems.
 
