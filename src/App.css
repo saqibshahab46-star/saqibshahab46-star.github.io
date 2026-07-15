@@ -1,4 +1,22 @@
 /* Paste your entire original CSS here. Do not alter anything. */
+/* ============ GLOBAL RESET & OVERFLOW LOCK ============ */
+html,
+body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    /* Prevents side-to-side scrolling */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
 :root {
     --bg: #F7F1E3;
     --bg-elevated: #10142400;
