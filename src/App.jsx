@@ -838,15 +838,15 @@ function App() {
                     </div>
 
                     <div className="about-text reveal">
-                        <p><b><h1>Hi there,</h1></b>Myself <b>Saqib</b>.I'm a <b>Software Engineer</b>, worked as an <b>AI Trainee at NASTP,
-                            Rawalpindi</b>, and previously
-                            interned at <b>OraDigitals</b> building React.js interfaces.</p>
-                        <p>Currently I'm building and exploring <b>DonutDoc</b> — a structured document generation system that helps
+                        <p><b><h1>Hi there,</h1></b>Myself <b>Saqib</b>.I'm a <b>Software Engineer</b>, worked as an AI Trainee at NASTP,
+                            Rawalpindi, and previously
+                            interned at OraDigitals, building React.js interfaces.</p>
+                        <p>Currently I'm building and exploring DonutDoc-a structured document generation system that helps
                             organizations turn raw, unstructured data into clean output using the DONUT vision-language model.
-                            Alongside that, I'm deeply invested in <b>deep learning and agentic automation</b>, and always looking to
+                            Alongside that, I'm deeply invested in Deep Learning and Agentic Automation, and always looking to
                             collaborate on open-source developer tools.</p>
                         <p>Ask me about: <b>Automation, n8n, React, Node.js, and AI Agents.</b>
-                            <br /> Fun fact — I have a real weakness for
+                            <br /> Fun fact—I have a real weakness for
                             building interactive, attention-holding websites (this one included).
                         </p>
                         <div className="tag-row">
@@ -1084,7 +1084,7 @@ function App() {
                             <ul>
                                 <li>OpenCV LBPH face recognition trained per-student</li>
                                 <li>MongoDB Atlas + Cloudinary for student records & images</li>
-                                <li>CI/CD to Render — push to main, both services redeploy</li>
+                                <li>CI/CD to Render,push to main, both services redeploy</li>
                             </ul>
                             <div className="stack-chips">
                                 <span className="chip"><i className="devicon-react-original colored"></i>React</span>
@@ -1355,21 +1355,20 @@ function App() {
                 <canvas id="contact-3d"></canvas>
                 <div className="eyebrow" >06 · Contact</div>
                 <h2 className="contact-title reveal">Let's build<br />something intelligent.</h2>
-                <a href="mailto:saqibshahab46@gmail.com" className="contact-email reveal">saqibshahab46@gmail.com</a>
+                <a href="mailto:saqibshahab46@gmail.com" className="contact-email reveal"><i className="devicon-gmail-plain colored"></i>saqibshahab46@gmail.com</a>
 
                 <div className="social-row reveal">
                     <a className="social-pill" href="https://www.linkedin.com/in/saqib-shahab-3b94a928a" target="_blank" rel="noopener noreferrer"><i className="devicon-linkedin-plain colored"></i>LinkedIn</a>
                     <a className="social-pill" href="https://github.com/saqibshahab46-star" target="_blank" rel="noopener noreferrer"><i className="devicon-github-original"></i>GitHub</a>
                     <a className="social-pill" href="https://instagram.com/btw_its__saqib" target="_blank" rel="noopener noreferrer">📷 Instagram</a>
-                    <a className="social-pill" href="https://x.com/shaqib46" target="_blank" rel="noopener noreferrer">✕ X / Twitter</a>
-                    <a className="social-pill" href="https://tiktok.com/@saqibshahab46" target="_blank" rel="noopener noreferrer">🎵 TikTok</a>
+                    <a className="social-pill" href="https://x.com/shaqib46" target="_blank" rel="noopener noreferrer">X / Twitter</a>
                     <a className="social-pill" href="https://youtube.com/@saqibshahab2283" target="_blank" rel="noopener noreferrer">▶️ YouTube</a>
                 </div>
             </section>
 
             <footer>
-                <span>© Saqib Shahab — Built with curiosity,</span>
-                <span>Three.js · Devicon · React</span>
+                <span>© Saqib Shahab — Built with curiosity and coffee,</span>
+                <span>Three.js · Devicon · React.js</span>
             </footer>
 
             {/* ============ PROJECT GALLERY MODAL ============ */}
