@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import Prism from './Prism';
+import MagneticDock from './MagneticDock';
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
@@ -6,6 +8,17 @@ import './App.css';
 
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Helper function to close menu and smooth scroll
+    const handleMobileNavClick = (e, targetId) => {
+        e.preventDefault(); // Stops the default jumpy anchor behavior
+        setIsMenuOpen(false); // Forcefully closes the mobile menu
+
+        const element = document.getElementById(targetId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' }); // Glides smoothly to the section
+        }
+    };
 
     // --- New Gallery State ---
     const [isGalleryOpen, setIsGalleryOpen] = useState(false);
@@ -715,23 +728,49 @@ function App() {
                     <a href="#resume">Resume</a>
                     <a href="#contact">Contact</a>
                 </div>
+                {/* ============ HAMBURGER BUTTON ============ */}
                 <div
                     id="hamburger"
-                    className={isMenuOpen ? "open" : ""}
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                    <span></span><span></span><span></span>
+                    {/* Simple SVG Hamburger Icon */}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#111816" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
                 </div>
             </nav>
 
             <div id="mobile-menu" className={isMenuOpen ? "open" : ""}>
-                <a href="#hero" onClick={() => setIsMenuOpen(false)}>Home</a>
-                <a href="#about" onClick={() => setIsMenuOpen(false)}>About</a>
-                <a href="#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-                <a href="#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-                <a href="#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
-                <a href="#resume" onClick={() => setIsMenuOpen(false)}>Resume</a>
-                <a href="#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+                <a href="#hero" onClick={(e) => handleMobileNavClick(e, 'hero')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg></span>
+                    Home
+                </a>
+                <a href="#about" onClick={(e) => handleMobileNavClick(e, 'about')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg></span>
+                    About
+                </a>
+                <a href="#experience" onClick={(e) => handleMobileNavClick(e, 'experience')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2" /><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" /></svg></span>
+                    Experience
+                </a>
+                <a href="#projects" onClick={(e) => handleMobileNavClick(e, 'projects')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" /></svg></span>
+                    Projects
+                </a>
+                <a href="#skills" onClick={(e) => handleMobileNavClick(e, 'skills')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg></span>
+                    Skills
+                </a>
+                <a href="#resume" onClick={(e) => handleMobileNavClick(e, 'resume')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /><polyline points="10 9 9 9 8 9" /></svg></span>
+                    Resume
+                </a>
+                <a href="#contact" onClick={(e) => handleMobileNavClick(e, 'contact')}>
+                    <span className="glass-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg></span>
+                    Contact
+                </a>
             </div>
 
             <div id="rail">
@@ -870,100 +909,175 @@ function App() {
                 <p className="section-sub reveal">Four systems, four different problems — a document intelligence engine, an AI booking agent, a computer-vision attendance system, a research-paper summarizer.</p>
                 <div className="project-grid">
 
-                    {/* Add onClick and cursor pointer to this specific card */}
                     <div className="pcard reveal" onClick={() => setIsGalleryOpen(true)} style={{ cursor: 'pointer' }}>
-                        <div className="pcard-top">
-                            <span className="pcard-num">01</span>
-                            <span className="pcard-icon">🍩</span>
+
+                        {/* 1. The 3D Prism Background Layer */}
+                        <div className="prism-bg">
+                            <Prism
+                                animationType="3drotate"
+                                timeScale={0.7}          /* Lowered to make the movement silky and elegant */
+                                height={3.5}
+                                baseWidth={5.5}
+                                scale={3.6}
+                                hueShift={0}             /* Set to 0 so the custom royal colors stay pure */
+                                colorFrequency={0.5}     /* Lowered to make color transitions wider and smoother */
+                                noise={0.05}             /* Reduced noise for a cleaner glass look */
+                                glow={2.0}               /* Maintains a bright, premium glow */
+                                suspendWhenOffscreen={true}
+                            />
                         </div>
-                        <span className="ptag">Final Year Project · Vision-Language · IDP</span>
-                        <h3>DonutDoc</h3>
-                        <p className="desc">An AI-based structured document generation system that helps organizations convert raw, manual, unstructured records into clean, structured output — built around the DONUT vision-language model.</p>
-                        <ul>
-                            <li>Fine-tuned DONUT model reaching a 0.19 training loss</li>
-                            <li>Targets manual/unstructured business documents at scale</li>
-                            <li>Currently in active development as my final-year project</li>
-                        </ul>
-                        <div className="stack-chips">
-                            <span className="chip"><i className="devicon-python-plain colored"></i>Python</span>
-                            <span className="chip">🌀 Swin Encoder</span>
-                            <span className="chip">📝 BART Decoder</span>
-                            <span className="chip"><i className="devicon-pytorch-original colored"></i>PyTorch</span>
-                            <span className="chip">🍩 DONUT</span>
-                            <span className="chip">👁️ Computer Vision</span>
-                            <span className="chip">🔤 NLP</span>
-                            <span className="chip">⚡ FastAPI</span>
+
+                        {/* 2. Your Existing Content Wrapper */}
+                        <div className="pcard-content">
+                            <div className="pcard-top">
+                                <span className="pcard-num">01</span>
+                                <span className="pcard-icon">🍩</span>
+                            </div>
+                            <span className="ptag">Final Year Project · Vision-Language · IDP</span>
+                            <h3>DonutDoc</h3>
+                            <p className="desc">An AI-based structured document generation system that helps organizations convert raw, manual, unstructured records into clean, structured output — built around the DONUT vision-language model.</p>
+                            <ul>
+                                <li>Fine-tuned DONUT model reaching a 0.19 training loss</li>
+                                <li>Targets manual/unstructured business documents at scale</li>
+                                <li>Currently in active development as my final-year project</li>
+                            </ul>
+                            <div className="stack-chips">
+                                <span className="chip"><i className="devicon-python-plain colored"></i>Python</span>
+                                <span className="chip">🌀 Swin Encoder</span>
+                                <span className="chip">📝 BART Decoder</span>
+                                <span className="chip"><i className="devicon-pytorch-original colored"></i>PyTorch</span>
+                                <span className="chip">🍩 DONUT</span>
+                                <span className="chip">👁️ Computer Vision</span>
+                                <span className="chip">🔤 NLP</span>
+                                <span className="chip">⚡ FastAPI</span>
+                            </div>
+
                         </div>
 
                     </div>
 
-                    <div className="pcard reveal">
-                        <div className="pcard-top"><span className="pcard-num">02</span><span className="pcard-icon">🚗</span></div>
-                        <span className="ptag">Agentic AI · SaaS</span>
-                        <h3>Apex Auto Works</h3>
-                        <p className="desc">A full-stack SaaS booking platform for automotive workshops. A production-grade AI agent holds human-like, multi-turn conversations to book appointments — grounded in workshop knowledge via RAG, with zero hallucinated double-bookings.</p>
-                        <ul>
-                            <li>LangChain + Groq (LLaMA-3.3-70B) for autonomous, stateful negotiation</li>
-                            <li>MongoDB Atlas Vector Search + HuggingFace embeddings for RAG</li>
-                            <li>JWT auth, bcrypt hashing, automated Nodemailer confirmations</li>
-                        </ul>
-                        <div className="stack-chips">
-                            <span className="chip"><i className="devicon-react-original colored"></i>React.js</span>
-                            <span className="chip"><i className="devicon-nodejs-plain colored"></i>Node</span>
-                            <span className="chip">🦜 LangChain</span>
-                            <span className="chip">⚡ Groq</span>
-                            <span className="chip"><i className="devicon-mongodb-plain colored"></i>MongoDB</span>
-                            <span className="chip">🔗 n8n</span>
+                    <div className="pcard reveal" onClick={() => setIsGalleryOpen(true)} style={{ cursor: 'pointer' }}>
+
+                        {/* 1. The 3D Prism Background Layer */}
+                        <div className="prism-bg">
+                            <Prism
+                                animationType="3drotate"
+                                timeScale={0.7}          /* Lowered to make the movement silky and elegant */
+                                height={3.5}
+                                baseWidth={5.5}
+                                scale={3.6}
+                                hueShift={0}             /* Set to 0 so the custom royal colors stay pure */
+                                colorFrequency={0.5}     /* Lowered to make color transitions wider and smoother */
+                                noise={0.05}             /* Reduced noise for a cleaner glass look */
+                                glow={2.0}               /* Maintains a bright, premium glow */
+                                suspendWhenOffscreen={true}
+                            />
                         </div>
-                        <div className="pcard-links">
-                            <a href="https://github.com/saqibshahab46-star/apex-auto-works" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        {/* 2. Your Existing Content Wrapper */}
+                        <div className="pcard-content">
+                            <div className="pcard-top"><span className="pcard-num">02</span><span className="pcard-icon">🚗</span></div>
+                            <span className="ptag">Agentic AI · SaaS</span>
+                            <h3>Apex Auto Works</h3>
+                            <p className="desc">A full-stack SaaS booking platform for automotive workshops. A production-grade AI agent holds human-like, multi-turn conversations to book appointments — grounded in workshop knowledge via RAG, with zero hallucinated double-bookings.</p>
+                            <ul>
+                                <li>LangChain + Groq (LLaMA-3.3-70B) for autonomous, stateful negotiation</li>
+                                <li>MongoDB Atlas Vector Search + HuggingFace embeddings for RAG</li>
+                                <li>JWT auth, bcrypt hashing, automated Nodemailer confirmations</li>
+                            </ul>
+                            <div className="stack-chips">
+                                <span className="chip"><i className="devicon-react-original colored"></i>React.js</span>
+                                <span className="chip"><i className="devicon-nodejs-plain colored"></i>Node</span>
+                                <span className="chip">🦜 LangChain</span>
+                                <span className="chip">⚡ Groq</span>
+                                <span className="chip"><i className="devicon-mongodb-plain colored"></i>MongoDB</span>
+                                <span className="chip">🔗 n8n</span>
+                            </div>
+                            <div className="pcard-links">
+                                <a href="https://github.com/saqibshahab46-star/apex-auto-works" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="pcard reveal">
-                        <div className="pcard-top"><span className="pcard-num">03</span><span className="pcard-icon">📷</span></div>
-                        <span className="ptag">Computer Vision</span>
-                        <h3>AMS Pro</h3>
-                        <p className="desc">A production attendance management system using real-time facial recognition. Replaces manual roll-calls with a webcam-driven pipeline — enroll a face once, and attendance logs itself from then on.</p>
-                        <ul>
-                            <li>OpenCV LBPH face recognition trained per-student</li>
-                            <li>MongoDB Atlas + Cloudinary for student records & images</li>
-                            <li>CI/CD to Render — push to main, both services redeploy</li>
-                        </ul>
-                        <div className="stack-chips">
-                            <span className="chip"><i className="devicon-react-original colored"></i>React</span>
-                            <span className="chip"><i className="devicon-flask-original colored"></i>Flask</span>
-                            <span className="chip"><i className="devicon-opencv-plain colored"></i>OpenCV</span>
-                            <span className="chip"><i className="devicon-mongodb-plain colored"></i>MongoDB</span>
-                            <span className="chip">☁️ Cloudinary</span>
-                        </div>
-                        <div className="pcard-links">
+                    <div className="pcard reveal" onClick={() => setIsGalleryOpen(true)} style={{ cursor: 'pointer' }}>
 
-                            <a href="https://github.com/saqibshahab46-star/AMS-PRO-Facial-Recognition-Attendance-System-" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        {/* 1. The 3D Prism Background Layer */}
+                        <div className="prism-bg">
+                            <Prism
+                                animationType="3drotate"
+                                timeScale={0.7}          /* Lowered to make the movement silky and elegant */
+                                height={3.5}
+                                baseWidth={5.5}
+                                scale={3.6}
+                                hueShift={0}             /* Set to 0 so the custom royal colors stay pure */
+                                colorFrequency={0.5}     /* Lowered to make color transitions wider and smoother */
+                                noise={0.05}             /* Reduced noise for a cleaner glass look */
+                                glow={2.0}               /* Maintains a bright, premium glow */
+                                suspendWhenOffscreen={true}
+                            />
+                        </div>
+                        <div className="pcard-content">
+                            <div className="pcard-top"><span className="pcard-num">03</span><span className="pcard-icon">📷</span></div>
+                            <span className="ptag">Computer Vision</span>
+                            <h3>AMS Pro</h3>
+                            <p className="desc">A production attendance management system using real-time facial recognition. Replaces manual roll-calls with a webcam-driven pipeline — enroll a face once, and attendance logs itself from then on.</p>
+                            <ul>
+                                <li>OpenCV LBPH face recognition trained per-student</li>
+                                <li>MongoDB Atlas + Cloudinary for student records & images</li>
+                                <li>CI/CD to Render — push to main, both services redeploy</li>
+                            </ul>
+                            <div className="stack-chips">
+                                <span className="chip"><i className="devicon-react-original colored"></i>React</span>
+                                <span className="chip"><i className="devicon-flask-original colored"></i>Flask</span>
+                                <span className="chip"><i className="devicon-opencv-plain colored"></i>OpenCV</span>
+                                <span className="chip"><i className="devicon-mongodb-plain colored"></i>MongoDB</span>
+                                <span className="chip">☁️ Cloudinary</span>
+                            </div>
+                            <div className="pcard-links">
+
+                                <a href="https://github.com/saqibshahab46-star/AMS-PRO-Facial-Recognition-Attendance-System-" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            </div>
                         </div>
                     </div>
 
-                    <div className="pcard reveal">
-                        <div className="pcard-top"><span className="pcard-num">04</span><span className="pcard-icon">📄</span></div>
-                        <span className="ptag">LLM Pipeline · Research Tool</span>
-                        <h3>ResumAgent</h3>
-                        <p className="desc">An intelligent academic paper summarizing <b>Agent</b> that turns a 30-minute read into a 60-second one. A 5-step agentic pipeline extracts, cleans, and reasons over a paper before rendering it as structured, glassmorphic cards.</p>
-                        <ul>
-                            <li>Gemini 1.5 Flash at temperature 0.3, strict JSON-schema output</li>
-                            <li>PyPDF2 extraction with reference-section stripping (~20-30% token savings)</li>
-                            <li>FastAPI backend, React + Vite frontend, dark glassmorphism UI</li>
-                        </ul>
-                        <div className="stack-chips">
-                            <span className="chip">⚡ FastAPI</span>
-                            <span className="chip"><i className="devicon-react-original colored"></i>React</span>
-                            <span className="chip">✨ Gemini 1.5</span>
-                            <span className="chip">📚 PyPDF2</span>
-                        </div>
-                        <div className="pcard-links">
-                            <a href="https://github.com/saqibshahab46-star/ResumAgent" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-                        </div>
-                    </div>
+                    <div className="pcard reveal" onClick={() => setIsGalleryOpen(true)} style={{ cursor: 'pointer' }}>
 
+                        {/* 1. The 3D Prism Background Layer */}
+                        <div className="prism-bg">
+                            <Prism
+                                animationType="3drotate"
+                                timeScale={0.7}          /* Lowered to make the movement silky and elegant */
+                                height={3.5}
+                                baseWidth={5.5}
+                                scale={3.6}
+                                hueShift={0}             /* Set to 0 so the custom royal colors stay pure */
+                                colorFrequency={0.5}     /* Lowered to make color transitions wider and smoother */
+                                noise={0.05}             /* Reduced noise for a cleaner glass look */
+                                glow={2.0}               /* Maintains a bright, premium glow */
+                                suspendWhenOffscreen={true}
+                            />
+                        </div>
+                        <div className="pcard-content">
+                            <div className="pcard-top"><span className="pcard-num">04</span><span className="pcard-icon">📄</span></div>
+                            <span className="ptag">LLM Pipeline · Research Tool</span>
+                            <h3>ResumAgent</h3>
+                            <p className="desc">An intelligent academic paper summarizing <b>Agent</b> that turns a 30-minute read into a 60-second one. A 5-step agentic pipeline extracts, cleans, and reasons over a paper before rendering it as structured, glassmorphic cards.</p>
+                            <ul>
+                                <li>Gemini 1.5 Flash at temperature 0.3, strict JSON-schema output</li>
+                                <li>PyPDF2 extraction with reference-section stripping (~20-30% token savings)</li>
+                                <li>FastAPI backend, React + Vite frontend, dark glassmorphism UI</li>
+                            </ul>
+                            <div className="stack-chips">
+                                <span className="chip">⚡ FastAPI</span>
+                                <span className="chip"><i className="devicon-react-original colored"></i>React</span>
+                                <span className="chip">✨ Gemini 1.5</span>
+                                <span className="chip">📚 PyPDF2</span>
+                            </div>
+                            <div className="pcard-links">
+                                <a href="https://github.com/saqibshahab46-star/ResumAgent" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </section>
 
@@ -1196,6 +1310,10 @@ function App() {
                 <span>© Saqib Shahab — Built with curiosity,</span>
                 <span>Three.js · Devicon · React</span>
             </footer>
+
+            {/* ============ NEW MAGNETIC DOCK ============ */}
+            <MagneticDock />
+
         </>
     );
 }

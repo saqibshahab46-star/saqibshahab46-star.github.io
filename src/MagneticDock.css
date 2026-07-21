@@ -1,0 +1,132 @@
+/* ============ MAGNETIC DOCK ============ */
+.dock-wrapper {
+    position: fixed;
+    top: 18px;
+    right: 4vw;
+    /* Pins the navbar to the extreme right */
+    left: auto;
+    /* Removes the center alignment */
+    transform: none;
+    /* Removes the center shift */
+    z-index: 9999;
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 22px;
+    /* Increased the space between icons significantly */
+    padding: 10px 24px;
+    border-radius: 20px;
+
+    /* Keep your existing glass effect */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+}
+
+.dock-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+}
+
+.dock-icon-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* New Glassy Effect - Removed the solid white gradient */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    color: #111816;
+    transition: all 0.2s ease;
+}
+
+.dock-icon-container svg {
+    width: 55%;
+    height: 55%;
+}
+
+.dock-active-dot {
+    position: absolute;
+    top: -8px;
+    /* Pulled closer to the smaller icons */
+    bottom: auto;
+    width: 5px;
+    /* Shrunk slightly */
+    height: 5px;
+    border-radius: 50%;
+    background: var(--cyan);
+    box-shadow: 0 0 8px var(--cyan);
+}
+
+.dock-tooltip {
+    position: absolute;
+    top: 50px;
+    /* Pulled up closer to the smaller icon */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Ensures perfect horizontal centering */
+    padding: 6px 14px;
+    border-radius: 8px;
+    background: #111816;
+    color: #ffffff;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 50;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dock-tooltip-arrow {
+    position: absolute;
+    top: -4px;
+    /* Points up toward the icon */
+    left: 50%;
+    transform: translateX(-300%) rotate(45deg);
+    /* Centers the arrow exactly */
+    width: 8px;
+    height: 8px;
+    background: #111816;
+}
+
+/* Hide dock on small mobile screens to save space */
+@media (max-width: 768px) {
+    .dock-wrapper {
+        display: none;
+    }
+}
+
+/* ============ TOOLTIP ALIGNMENT FIXES ============ */
+
+/* Force the last tag (Contact) to align inward so it doesn't leave the screen */
+.dock-item:last-child .dock-tooltip {
+    left: auto;
+    right: 0;
+    transform: none;
+}
+
+/* Realign the arrow for the last tag */
+.dock-item:last-child .dock-tooltip-arrow {
+    left: auto;
+    right: 15px;
+    /* Moves the arrow under the text instead of the center */
+    transform: rotate(45deg);
+}
