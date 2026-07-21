@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Prism from './Prism';
 import MagneticDock from './MagneticDock';
+import Smooth3DSlideshow from './Smooth3DSlideshow';
 import * as THREE from 'three';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
@@ -8,6 +9,7 @@ import './App.css';
 
 function App() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
     // Helper function to close menu and smooth scroll
     const handleMobileNavClick = (e, targetId) => {
@@ -856,13 +858,72 @@ function App() {
                         </div>
                         <br />
 
-                        <div className="fact-card">
-                            <div className="fact-row"><span className="k">Location</span><span className="v">Lahore, Pakistan</span></div>
-                            <div className="fact-row"><span className="k">Education</span><span className="v">BS Software Engineering, UET Taxila (2026)</span></div>
-                            <div className="fact-row"><span className="k">Current Role</span><span className="v">AI/ML Engineer</span></div>
-                            <div className="fact-row"><span className="k">Building</span><span className="v">LLMs, AI Agents, Automations, Full-stack AI systems</span></div>
-                            <div className="fact-row"><span className="k">Learning</span><span className="v">Deep Learning · Agentic Automation</span></div>
-                            <div className="fact-row"><span className="k">Pronouns</span><span className="v">He / His</span></div>
+                        <div className="about-glass-card">
+
+                            {/* LOCATION ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/location.webp" alt="Location" className="animated-icon" />
+                                    <span>LOCATION</span>
+                                </div>
+                                <div className="info-value">Lahore, Pakistan</div>
+                            </div>
+
+                            <div className="row-divider"></div>
+
+                            {/* EDUCATION ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/education.webp" alt="Education" className="animated-icon" />
+                                    <span>EDUCATION</span>
+                                </div>
+                                <div className="info-value">BS Software Engineering, UET Taxila (2026)</div>
+                            </div>
+
+                            <div className="row-divider"></div>
+
+                            {/* CURRENT ROLE ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/current-role.webp" alt="Current Role" className="animated-icon" />
+                                    <span>CURRENT ROLE</span>
+                                </div>
+                                <div className="info-value">AI/ML Engineer</div>
+                            </div>
+
+                            <div className="row-divider"></div>
+
+                            {/* BUILDING ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/building.webp" alt="Building" className="animated-icon" />
+                                    <span>BUILDING</span>
+                                </div>
+                                <div className="info-value">LLMs, AI Agents, Automations, Full-stack AI systems</div>
+                            </div>
+
+                            <div className="row-divider"></div>
+
+                            {/* LEARNING ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/learning.webp" alt="Learning" className="animated-icon" />
+                                    <span>LEARNING</span>
+                                </div>
+                                <div className="info-value">Deep Learning · Agentic Automation</div>
+                            </div>
+
+                            <div className="row-divider"></div>
+
+                            {/* PRONOUNS ROW */}
+                            <div className="info-row">
+                                <div className="info-label">
+                                    <img src="/pronoun.webp" alt="Pronouns" className="animated-icon" />
+                                    <span>PRONOUNS</span>
+                                </div>
+                                <div className="info-value">He / His</div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -1310,6 +1371,25 @@ function App() {
                 <span>© Saqib Shahab — Built with curiosity,</span>
                 <span>Three.js · Devicon · React</span>
             </footer>
+
+            {/* ============ PROJECT GALLERY MODAL ============ */}
+            {isGalleryOpen && (
+                <div className="gallery-modal-overlay">
+                    <div className="gallery-modal-content">
+                        <button
+                            className="gallery-close-btn"
+                            onClick={() => setIsGalleryOpen(false)}
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+
+                        {/* 3D Slideshow Component */}
+                        <div style={{ width: '100vw', height: '100vh' }}>
+                            <Smooth3DSlideshow />
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* ============ NEW MAGNETIC DOCK ============ */}
             <MagneticDock />
